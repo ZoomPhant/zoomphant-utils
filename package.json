@@ -1,0 +1,36 @@
+{
+  "name": "zoomphant-utils",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "dev": "pnpm --filter ui run dev",
+    "build": "pnpm --filter ui run build",
+    "test": "echo \"test\"",
+    "prepare": "husky"
+  },
+  "keywords": [],
+  "author": "",
+  "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@eslint/js": "^9.4.0",
+    "eslint": "^9.4.0",
+    "globals": "^15.4.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.5",
+    "typescript-eslint": "^7.13.0"
+  },
+  "lint-staged": {
+    "packages/*/{src,types}/**/*.ts": [
+      "eslint --cache --fix"
+    ],
+    "packages/**/*.d.ts": [
+      "eslint --cache --fix"
+    ],
+    "playground/**/__tests__/**/*.ts": [
+      "eslint --cache --fix"
+    ]
+  }
+}
