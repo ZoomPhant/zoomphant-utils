@@ -1,12 +1,19 @@
 {
-  "name": "@zoomphant-utils/core",
+  "name": "@zoomphant-utils/monitor",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "module": "src/index.ts",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "bun run ./scripts/build.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "files/*",
+    "src/*"
+  ]
 }
