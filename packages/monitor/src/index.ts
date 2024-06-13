@@ -1,5 +1,4 @@
-import core from "./core";
+import Core from "./core";
+import type { ISettings } from "./types";
 
-export default {
-  core,
-};
+export { Core, type ISettings };
