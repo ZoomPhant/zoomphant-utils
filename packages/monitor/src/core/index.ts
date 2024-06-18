@@ -1,12 +1,13 @@
 import { version } from "../../package.json";
 import type { IBaseSettings, IPluginSettings, ISettings } from "../types";
+import { Logs } from "./modules/logs";
 class Core {
   public static readonly version: string = version;
 
   private connectorId: string = "zoomphant-connector";
   private monitorId: string = "zoomphant-monitor";
 
-  private baseSettings: IBaseSettings | null = null;
+  public baseSettings: IBaseSettings | null = null;
   private pluginSettings: IPluginSettings = {
     xhr: false,
     fetch: false,
@@ -15,6 +16,8 @@ class Core {
 
   private connector: HTMLIFrameElement | null = null;
   private messageResolvers: Record<string, any> = {};
+
+  public logs: Logs;
 
   constructor(settings: ISettings) {
     if (new.target !== Core)
@@ -26,7 +29,10 @@ class Core {
       agent: settings.agent,
       token: settings.token,
       domain: settings.domain,
+      instanceId: settings.instanceId,
     };
+
+    this.logs = new Logs(this, settings.maxStacks || 10);
 
     if (settings.plugins) {
       if (settings.plugins.xhr) this.pluginSettings.xhr = true;
@@ -79,7 +85,7 @@ class Core {
     }
   }
 
-  private post<T = { error?: string }>({
+  public post<T = { error?: string }>({
     type,
     body,
   }: {
