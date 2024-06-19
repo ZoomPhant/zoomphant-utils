@@ -18,5 +18,8 @@
   "files": [
     "files/*"
   ],
-  "types": "files/index.d.ts"
+  "types": "files/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  }
 }

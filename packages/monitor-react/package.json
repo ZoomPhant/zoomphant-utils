@@ -22,5 +22,8 @@
   },
   "dependencies": {
     "@zoomphant-utils/monitor": "workspace:^"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
