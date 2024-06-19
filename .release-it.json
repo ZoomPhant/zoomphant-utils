@@ -1,8 +1,21 @@
 {
   "plugins": {
+    "git": {
+      "commitMessage": "chore: release ${version}"
+    },
     "@release-it/conventional-changelog": {
       "preset": {
-        "name": "conventionalcommits"
+        "name": "conventionalcommits",
+        "type": [
+          {
+            "type": "feat",
+            "section": "Features"
+          },
+          {
+            "type": "fix",
+            "section": "Bug Fixes"
+          }
+        ]
       },
       "infile": "CHANGELOG.md"
     }
