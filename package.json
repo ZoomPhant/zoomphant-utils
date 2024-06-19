@@ -10,18 +10,22 @@
     "build": "pnpm --filter ui run build",
     "test": "echo \"test\"",
     "prepare": "husky",
-    "release": "release-it"
+    "release": "release-it",
+    "commit": "git-cz"
   },
   "keywords": [],
   "author": "",
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/cz-commitlint": "^19.2.0",
     "@eslint/js": "^9.4.0",
     "@release-it/conventional-changelog": "^8.0.1",
+    "commitizen": "^4.3.0",
     "eslint": "^9.4.0",
     "globals": "^15.4.0",
     "husky": "^9.0.11",
+    "inquirer": "9",
     "lint-staged": "^15.2.5",
     "release-it": "^17.3.0",
     "typescript-eslint": "^7.13.0"
@@ -46,6 +50,11 @@
         "preset": "angular",
         "infile": "CHANGELOG.md"
       }
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
     }
   }
 }
