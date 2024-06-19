@@ -1,6 +1,6 @@
 {
   "name": "@zoomphant-utils/monitor-react",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "module": "files/index.js",
   "types": "files/index.d.ts",
   "type": "module",
