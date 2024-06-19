@@ -1,7 +1,7 @@
-import { Core } from "@zoomphant-utils/monitor";
+import Monitor from "@zoomphant-utils/monitor";
 
 function main() {
-  window.instance = new Core({
+  window.instance = new Monitor({
     account: "ca1",
     agent: "mc12N0C92NAWSAL",
     token: "domvczqwv18h",

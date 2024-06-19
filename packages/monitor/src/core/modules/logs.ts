@@ -15,24 +15,35 @@ export class Logs {
     this.stacks = [new Stack({ max: this.maxStacks })];
   }
 
-  public capture(message: Message | Array<unknown>) {
+  public capture(
+    message:
+      | Message
+      | [
+          IMessageParams["type"],
+          IMessageParams["level"],
+          IMessageParams["message"]
+        ]
+  ) {
     if (this.core) {
       if (message instanceof Message) {
         const [stack] = this.stacks;
         stack.push(message);
       } else {
         const [stack] = this.stacks;
-        const args = message as [
-          IMessageParams["type"],
-          IMessageParams["level"],
-          IMessageParams["message"]
-        ];
-        stack.push(new Message(...args));
+        stack.push(new Message(...message));
       }
     }
   }
 
-  public captureAndSync(message: Message | Array<unknown>) {
+  public captureAndSync(
+    message:
+      | Message
+      | [
+          IMessageParams["type"],
+          IMessageParams["level"],
+          IMessageParams["message"]
+        ]
+  ) {
     if (this.core) {
       this.capture(message);
 
