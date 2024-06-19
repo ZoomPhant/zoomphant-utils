@@ -1,0 +1,23 @@
+{
+  "name": "@zoomphant-utils/monitor-react",
+  "module": "files/index.js",
+  "types": "files/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "bun run ./scripts/build.js"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/react": "^18.3.3",
+    "bun-plugin-dts": "^0.2.3",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  },
+  "peerDependencies": {
+    "react": "^16",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@zoomphant-utils/monitor": "workspace:^"
+  }
+}
