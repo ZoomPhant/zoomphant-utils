@@ -1,8 +1,14 @@
 {
+  "git": {
+    "commitMessage": "chore: release ${version}"
+  },
+  "github": {
+    "release": true
+  },
+  "npm": {
+    "publish": false
+  },
   "plugins": {
-    "git": {
-      "commitMessage": "chore: release ${version}"
-    },
     "@release-it/conventional-changelog": {
       "preset": {
         "name": "conventionalcommits",
