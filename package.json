@@ -17,7 +17,7 @@
     "build": "pnpm --filter ui run build",
     "test": "echo \"test\"",
     "prepare": "husky",
-    "release": "release-it",
+    "release": "npm run release --workspaces &&release-it",
     "commit": "git-cz"
   },
   "keywords": [],
