@@ -43,17 +43,6 @@
       "eslint --cache --fix"
     ]
   },
-  "release-it": {
-    "github": {
-      "release": true
-    },
-    "plugins": {
-      "@release-it/conventional-changelog": {
-        "preset": "angular",
-        "infile": "CHANGELOG.md"
-      }
-    }
-  },
   "config": {
     "commitizen": {
       "path": "@commitlint/cz-commitlint"
