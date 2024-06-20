@@ -2,7 +2,9 @@
   "git": {
     "commitMessage": "chore: release ${version}"
   },
-  "npm": false,
+  "npm": {
+    "publish": false
+  },
   "plugins": {
     "@release-it-plugins/workspaces": true,
     "@release-it/conventional-changelog": {
