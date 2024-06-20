@@ -1,4 +1,7 @@
 import { version } from "../../package.json";
+import MonitorConsolePlugin from "../plugins/console";
+import MonitorFetchPlugin from "../plugins/fetch";
+import MonitorXHRPlugin from "../plugins/xhr";
 import type { IBaseSettings, IPluginSettings, ISettings } from "../types";
 import { Logs } from "./modules/logs";
 class Core {
@@ -46,6 +49,9 @@ class Core {
   private initialize() {
     this.createConnector();
     this.addEventListeners();
+    if (this.pluginSettings.fetch) MonitorFetchPlugin.initialize(this);
+    if (this.pluginSettings.xhr) MonitorXHRPlugin.initialize(this);
+    if (this.pluginSettings.console) MonitorConsolePlugin.initialize(this);
   }
 
   private createConnector() {

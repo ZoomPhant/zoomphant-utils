@@ -20,7 +20,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@zoomphant-utils/monitor": "0.0.3"
+    "@zoomphant-utils/monitor": "workspace:*"
   },
   "publishConfig": {
     "access": "public"

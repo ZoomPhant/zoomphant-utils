@@ -15,13 +15,14 @@ export class Message {
   constructor(
     type: IMessageParams["type"],
     level: IMessageParams["level"],
-    message: IMessageParams["message"]
+    message: IMessageParams["message"],
+    extra: IMessageParams["extra"]
   ) {
     this.level = level;
     this.message = message;
     this.type = type;
     this.timestamp = new Date().getTime();
-    this.extra = {} as IMessageParams["extra"];
+    this.extra = (extra || {}) as IMessageParams["extra"];
 
     this.generateExtra();
   }

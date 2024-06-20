@@ -14,9 +14,9 @@ export type IBaseSettings = {
 	domain: string;
 };
 export type IPluginSettings = {
-	xhr: boolean;
-	fetch: boolean;
-	console: boolean;
+	xhr?: boolean;
+	fetch?: boolean;
+	console?: boolean;
 };
 export type IStackSettings = {
 	maxStacks?: number;
@@ -32,6 +32,7 @@ export type IMessageParams = {
 		browser?: string;
 		browserVersion?: string;
 		title?: string;
+		data?: string;
 	};
 };
 declare class Message {
@@ -40,7 +41,7 @@ declare class Message {
 	message: IMessageParams["message"] | null;
 	timestamp: IMessageParams["timestamp"] | null;
 	extra: IMessageParams["extra"] | null;
-	constructor(type: IMessageParams["type"], level: IMessageParams["level"], message: IMessageParams["message"]);
+	constructor(type: IMessageParams["type"], level: IMessageParams["level"], message: IMessageParams["message"], extra: IMessageParams["extra"]);
 	generateExtra(): void;
 	destroy(): void;
 }
@@ -53,11 +54,21 @@ declare class Logs {
 		IMessageParams["type"],
 		IMessageParams["level"],
 		IMessageParams["message"]
+	] | [
+		IMessageParams["type"],
+		IMessageParams["level"],
+		IMessageParams["message"],
+		IMessageParams["extra"]
 	]): void;
 	captureAndSync(message: Message | [
 		IMessageParams["type"],
 		IMessageParams["level"],
 		IMessageParams["message"]
+	] | [
+		IMessageParams["type"],
+		IMessageParams["level"],
+		IMessageParams["message"],
+		IMessageParams["extra"]
 	]): Promise<{
 		error?: string | undefined;
 	}> | Promise<void>;

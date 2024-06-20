@@ -1,3 +1,7 @@
+export const OriginalFetch = window.fetch;
+export const OriginalConsole = { ...console };
+export const OriginalXHR = window.XMLHttpRequest;
+
 export function pick(obj: Record<string, any>, keys: string[]) {
   return keys.reduce((acc, key) => {
     acc[key] = obj[key];

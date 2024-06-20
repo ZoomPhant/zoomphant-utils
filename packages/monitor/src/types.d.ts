@@ -11,14 +11,14 @@ export type IBaseSettings = {
 };
 
 export type IPluginSettings = {
-  xhr: boolean;
-  fetch: boolean;
-  console: boolean;
+  xhr?: boolean;
+  fetch?: boolean;
+  console?: boolean;
 };
 
 export type IStackSettings = {
   maxStacks?: number;
-}
+};
 
 export type IMessageParams = {
   level: "info" | "warn" | "error";
@@ -34,6 +34,7 @@ export type IMessageParams = {
     os?: string;
     browser?: string;
     browserVersion?: string;
-    title?: string
-  }
+    title?: string;
+    data?: string;
+  };
 };

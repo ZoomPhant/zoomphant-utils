@@ -23,6 +23,12 @@ export class Logs {
           IMessageParams["level"],
           IMessageParams["message"]
         ]
+      | [
+          IMessageParams["type"],
+          IMessageParams["level"],
+          IMessageParams["message"],
+          IMessageParams["extra"]
+        ]
   ) {
     if (this.core) {
       if (message instanceof Message) {
@@ -30,7 +36,13 @@ export class Logs {
         stack.push(message);
       } else {
         const [stack] = this.stacks;
-        stack.push(new Message(...message));
+        if (message.length === 4) {
+          stack.push(new Message(...message));
+        } else if (message.length === 3) {
+          stack.push(new Message(...[...message, {}]));
+        } else {
+          throw Error("Invalid params");
+        }
       }
     }
   }
@@ -42,6 +54,12 @@ export class Logs {
           IMessageParams["type"],
           IMessageParams["level"],
           IMessageParams["message"]
+        ]
+      | [
+          IMessageParams["type"],
+          IMessageParams["level"],
+          IMessageParams["message"],
+          IMessageParams["extra"]
         ]
   ) {
     if (this.core) {

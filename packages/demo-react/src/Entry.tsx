@@ -8,6 +8,9 @@ const monitor = new Monitor({
   token: "domvczqwv18h",
   instanceId: "mi62",
   domain: "http://gate.zervice.cn:1080",
+  plugins: {
+    console: true
+  }
 })
 
 export default () => {
