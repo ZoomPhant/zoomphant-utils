@@ -1,6 +1,3 @@
 {
-  "git": false,
-  "github": {
-    "release": true
-  }
+  "git": false
 }
