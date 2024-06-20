@@ -6,7 +6,8 @@
   "types": "files/index.d.ts",
   "type": "module",
   "scripts": {
-    "build": "bun run ./scripts/build.js"
+    "build": "bun run ./scripts/build.js",
+    "release": "release-it"
   },
   "devDependencies": {
     "@types/bun": "latest",
