@@ -6,7 +6,14 @@
     "release": true
   },
   "plugins": {
-    "@release-it-plugins/workspaces": true,
+    "@release-it/bumper": {
+      "out": {
+        "file": "package.json",
+        "path": [
+          "dependencies.@zoomphant-utils/monitor"
+        ]
+      }
+    },
     "@release-it/conventional-changelog": {
       "preset": {
         "name": "conventionalcommits",
