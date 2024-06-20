@@ -5,9 +5,6 @@
   "description": "",
   "main": "index.js",
   "workspaces": [
-    "packages/connector",
-    "packages/demo",
-    "packages/demo-react",
     "packages/monitor",
     "packages/monitor-react"
   ],
