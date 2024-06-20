@@ -3,9 +3,7 @@
     "commitMessage": "chore: release ${version}",
     "requireCleanWorkingDir": false
   },
-  "npm": {
-    "publish": false
-  },
+  "npm": false,
   "plugins": {
     "@release-it-plugins/workspaces": true,
     "@release-it/conventional-changelog": {
