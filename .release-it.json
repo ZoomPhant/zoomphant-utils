@@ -1,12 +1,10 @@
 {
   "git": {
-    "commitMessage": "chore: release ${version}",
-    "requireCleanWorkingDir": false
+    "commitMessage": "chore: release ${version}"
   },
-  "npm": {
-    "publish": false
-  },
+  "npm": false,
   "plugins": {
+    "@release-it-plugins/workspaces": true,
     "@release-it/conventional-changelog": {
       "preset": {
         "name": "conventionalcommits",
