@@ -5,8 +5,7 @@
   "module": "files/index.js",
   "type": "module",
   "scripts": {
-    "build": "bun run ./scripts/build.js",
-    "release": "release-it"
+    "build": "bun run ./scripts/build.js"
   },
   "devDependencies": {
     "@types/bun": "latest",
