@@ -6,6 +6,7 @@
     "release": true
   },
   "plugins": {
+    "@release-it-plugins/workspaces": true,
     "@release-it/conventional-changelog": {
       "preset": {
         "name": "conventionalcommits",
