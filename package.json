@@ -13,7 +13,7 @@
     "build": "pnpm --filter @zoomphant-utils/monitor run build && pnpm --filter @zoomphant-utils/monitor-react run build",
     "test": "echo \"test\"",
     "prepare": "husky",
-    "release": "npm run release --workspaces && release-it",
+    "release": "release-it",
     "commit": "git-cz"
   },
   "keywords": [],
