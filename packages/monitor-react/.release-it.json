@@ -2,19 +2,7 @@
   "git": false,
   "plugins": {
     "@release-it/conventional-changelog": {
-      "preset": {
-        "name": "conventionalcommits",
-        "type": [
-          {
-            "type": "feat",
-            "section": "Features"
-          },
-          {
-            "type": "fix",
-            "section": "Bug Fixes"
-          }
-        ]
-      },
+      "preset": "angular",
       "infile": "CHANGELOG.md"
     }
   }
