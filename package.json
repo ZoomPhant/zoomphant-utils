@@ -10,8 +10,7 @@
   ],
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "dev": "pnpm --filter ui run dev",
-    "build": "pnpm --filter ui run build",
+    "build": "pnpm --filter @zoomphant-utils/monitor run build && pnpm --filter @zoomphant-utils/monitor-react run build",
     "test": "echo \"test\"",
     "prepare": "husky",
     "release": "release-it",
