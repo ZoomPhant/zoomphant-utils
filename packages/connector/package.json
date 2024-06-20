@@ -15,5 +15,10 @@
   "files": [
     "files/*",
     "src/*"
-  ]
+  ],
+  "release-it": {
+    "git": false,
+    "npm": false,
+    "github": false
+  }
 }

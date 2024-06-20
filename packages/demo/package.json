@@ -14,5 +14,10 @@
   },
   "dependencies": {
     "@zoomphant-utils/monitor": "workspace:^"
+  },
+  "release-it": {
+    "git": false,
+    "npm": false,
+    "github": false
   }
 }
