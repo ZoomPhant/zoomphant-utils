@@ -136,8 +136,8 @@ importers:
   packages/monitor-react:
     dependencies:
       '@zoomphant-utils/monitor':
-        specifier: ^0.1.2
-        version: 0.1.2(typescript@5.4.5)
+        specifier: ^0.1.3
+        version: 0.1.3(typescript@5.4.5)
       typescript:
         specifier: ^5.0.0
         version: 5.4.5
@@ -869,8 +869,8 @@ packages:
     peerDependencies:
       vite: ^4.2.0 || ^5.0.0
 
-  '@zoomphant-utils/monitor@0.1.2':
-    resolution: {integrity: sha512-Q35nA/z49RwNRSFX/GK1xbb9rLaGEurp/EaGitwwQsfFD5XRQRl9m5PHq0zoOTueRqyJVQIUkcNuKkndsCACMw==}
+  '@zoomphant-utils/monitor@0.1.3':
+    resolution: {integrity: sha512-9tLMHnAuD/YF1oLJSV7GSAv95oRZJ+yS9w4WKrhy295xqgxlVG2jw3sK5CezkcUASQI+GS0k3IQiZaXzyb0c2g==}
     peerDependencies:
       typescript: ^5.0.0
 
@@ -4040,7 +4040,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@zoomphant-utils/monitor@0.1.2(typescript@5.4.5)':
+  '@zoomphant-utils/monitor@0.1.3(typescript@5.4.5)':
     dependencies:
       typescript: 5.4.5
 

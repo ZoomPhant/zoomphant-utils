@@ -1,5 +1,12 @@
 
 
+## [0.1.4](https://github.com/ZoomPhant/zoomphant-utils/compare/0.1.3...0.1.4) (2024-06-21)
+
+
+### Bug Fixes
+
+* **tsconfig.json:** correct the jsx config ([69e24ee](https://github.com/ZoomPhant/zoomphant-utils/commit/69e24eef2ac3c0d89c6772e1530f4678609b396e))
+
 ## [0.1.3](https://github.com/ZoomPhant/zoomphant-utils/compare/0.1.2...0.1.3) (2024-06-21)
 
 ## [0.1.2](https://github.com/ZoomPhant/zoomphant-utils/compare/0.1.1...0.1.2) (2024-06-21)
