@@ -1,5 +1,12 @@
 
 
+## [0.1.1](https://github.com/ZoomPhant/zoomphant-utils/compare/0.1.0...0.1.1) (2024-06-21)
+
+
+### Bug Fixes
+
+* correct the jsx compiler option ([1a36a37](https://github.com/ZoomPhant/zoomphant-utils/commit/1a36a37a3cc672512a5b5d54cf873fa2d7fc85a3))
+
 # [0.1.0](https://github.com/ZoomPhant/zoomphant-utils/compare/0.0.3...0.1.0) (2024-06-20)
 
 
