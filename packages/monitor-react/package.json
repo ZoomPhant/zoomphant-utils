@@ -3,7 +3,6 @@
   "private": false,
   "version": "0.1.2",
   "module": "files/index.js",
-  "types": "files/index.d.ts",
   "type": "module",
   "scripts": {
     "build": "bun run ./scripts/build.js"
@@ -22,6 +21,10 @@
   "dependencies": {
     "@zoomphant-utils/monitor": "^0.1.2"
   },
+  "files": [
+    "files/*"
+  ],
+  "types": "files/index.d.ts",
   "publishConfig": {
     "access": "public"
   }
