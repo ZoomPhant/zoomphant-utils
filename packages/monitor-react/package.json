@@ -5,7 +5,7 @@
   "module": "files/index.js",
   "type": "module",
   "scripts": {
-    "build": "bun run ./scripts/build.js"
+    "build": "NODE_ENV=production bun run ./scripts/build.js"
   },
   "devDependencies": {
     "@types/bun": "latest",
