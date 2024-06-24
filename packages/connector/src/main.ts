@@ -45,7 +45,7 @@ const receiveMessage = (evt: MessageEvent) => {
           messageId: data.messageId,
           source: "zoomphant-connector",
           body: { error: xhr?.responseText },
-          type: data.type
+          type: data.type,
         },
         qs.get("domain") as string
       );
@@ -56,7 +56,17 @@ const receiveMessage = (evt: MessageEvent) => {
 };
 
 const initialize = () => {
-  window.addEventListener("message", receiveMessage);
+  const top = window.top;
+  if (top) {
+    window.addEventListener("message", receiveMessage);
+    top.postMessage(
+      {
+        source: "zoomphant-connector",
+        type: "initialize",
+      },
+      qs.get("domain") as string
+    );
+  }
 };
 
 export default function main() {

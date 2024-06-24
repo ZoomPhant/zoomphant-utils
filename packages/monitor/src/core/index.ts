@@ -4,6 +4,7 @@ import MonitorFetchPlugin from "../plugins/fetch";
 import MonitorXHRPlugin from "../plugins/xhr";
 import type { IBaseSettings, IPluginSettings, ISettings } from "../types";
 import { Logs } from "./modules/logs";
+import { Metrics } from "./modules/metric";
 class Core {
   public static readonly version: string = version;
 
@@ -19,8 +20,13 @@ class Core {
 
   private connector: HTMLIFrameElement | null = null;
   private messageResolvers: Record<string, any> = {};
+  private connectorPromise: Promise<any> | null = null;
+  private connectorPromiseResolver:
+    | ((value: PromiseLike<undefined> | undefined) => void)
+    | null = null;
 
   public logs: Logs;
+  public metrics: Metrics;
 
   constructor(settings: ISettings) {
     if (new.target !== Core)
@@ -36,6 +42,7 @@ class Core {
     };
 
     this.logs = new Logs(this, settings.maxStacks || 10);
+    this.metrics = new Metrics(this);
 
     if (settings.plugins) {
       if (settings.plugins.xhr) this.pluginSettings.xhr = true;
@@ -49,9 +56,12 @@ class Core {
   private initialize() {
     this.createConnector();
     this.addEventListeners();
+
     if (this.pluginSettings.fetch) MonitorFetchPlugin.initialize(this);
     if (this.pluginSettings.xhr) MonitorXHRPlugin.initialize(this);
     if (this.pluginSettings.console) MonitorConsolePlugin.initialize(this);
+
+    this.metrics.record();
   }
 
   private createConnector() {
@@ -73,6 +83,10 @@ class Core {
     this.connector.style.border = "none";
     this.connector.style.marginLeft = "-999px";
 
+    this.connectorPromise = new Promise<undefined>((resolve) => {
+      this.connectorPromiseResolver = resolve;
+    });
+
     document.body.appendChild(this.connector);
   }
 
@@ -81,12 +95,18 @@ class Core {
   }
 
   private handleMessage(evt: MessageEvent) {
-    const { source, body, messageId } = evt.data;
+    const { source, body, type, messageId } = evt.data;
     if (source === this.connectorId) {
-      const resolver = this.messageResolvers[messageId];
-      if (resolver) {
-        resolver(body);
-        delete this.messageResolvers[messageId];
+      if (type === "initialize") {
+        if (this.connectorPromiseResolver) {
+          this.connectorPromiseResolver(undefined);
+        }
+      } else {
+        const resolver = this.messageResolvers[messageId];
+        if (resolver) {
+          resolver(body);
+          delete this.messageResolvers[messageId];
+        }
       }
     }
   }
@@ -106,17 +126,19 @@ class Core {
       this.messageResolvers[messageId] = resolve;
     });
 
-    this.connector.contentWindow?.postMessage(
-      {
-        source: this.monitorId,
-        type,
-        body,
-        messageId,
-      },
-      this.baseSettings!.domain
-    );
-
-    return promise;
+    return Promise.resolve(
+      this.connectorPromise?.then(() => {
+        this.connector?.contentWindow?.postMessage?.(
+          {
+            source: this.monitorId,
+            type,
+            body,
+            messageId,
+          },
+          this.baseSettings!.domain
+        );
+      })
+    ).then(() => promise);
   }
 
   public destroy() {

@@ -1,5 +1,5 @@
-import type { IMessageParams } from "../types";
-import { detectOS, getBrowserInfo } from "../utils";
+import type { IMessageParams } from "../../../types";
+import { detectOS, getBrowserInfo } from "../../../utils";
 
 export class Message {
   public type: IMessageParams["type"] | null;
