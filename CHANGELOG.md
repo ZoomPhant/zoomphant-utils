@@ -1,5 +1,12 @@
 
 
+# [0.2.0](https://github.com/ZoomPhant/zoomphant-utils/compare/0.1.4...0.2.0) (2024-06-24)
+
+
+### Features
+
+* add the metric record ([#2](https://github.com/ZoomPhant/zoomphant-utils/issues/2)) ([e567583](https://github.com/ZoomPhant/zoomphant-utils/commit/e567583e0fce2ddead048b296b7dcb92f8334620))
+
 ## [0.1.4](https://github.com/ZoomPhant/zoomphant-utils/compare/0.1.3...0.1.4) (2024-06-21)
 
 
