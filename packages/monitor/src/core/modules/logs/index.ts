@@ -1,7 +1,7 @@
-import type Core from "..";
-import type { IMessageParams } from "../../types";
-import { Message } from "../message";
-import { Stack } from "../stack";
+import type Core from "../..";
+import type { IMessageParams } from "../../../types";
+import { Message } from "./message";
+import { Stack } from "./stack";
 
 export class Logs {
   private core: Core;

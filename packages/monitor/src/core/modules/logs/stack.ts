@@ -1,4 +1,4 @@
-import { JSONStringify, pick } from "../utils";
+import { JSONStringify, pick } from "../../../utils";
 import type { Message } from "./message";
 
 export class Stack {
