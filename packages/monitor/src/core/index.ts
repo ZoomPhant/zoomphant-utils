@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { version } from "../../package.json";
 import MonitorConsolePlugin from "../plugins/console";
 import MonitorFetchPlugin from "../plugins/fetch";
@@ -121,7 +122,7 @@ class Core {
     if (!this.connector) {
       throw new Error("Connector not found");
     }
-    const messageId = crypto.randomUUID();
+    const messageId = uuidv4();
     const promise = new Promise<T>((resolve) => {
       this.messageResolvers[messageId] = resolve;
     });
