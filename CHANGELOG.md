@@ -1,5 +1,12 @@
 
 
+## [0.2.5](https://github.com/ZoomPhant/zoomphant-utils/compare/0.2.4...0.2.5) (2024-06-24)
+
+
+### Bug Fixes
+
+* **monitor-core.metrics:** add a delay to sending metrics ([704cd2f](https://github.com/ZoomPhant/zoomphant-utils/commit/704cd2f836590e89b761a6d76522edc8f7e0644f))
+
 ## [0.2.4](https://github.com/ZoomPhant/zoomphant-utils/compare/0.2.3...0.2.4) (2024-06-24)
 
 
