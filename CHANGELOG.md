@@ -1,5 +1,12 @@
 
 
+## [0.2.2](https://github.com/ZoomPhant/zoomphant-utils/compare/0.2.1...0.2.2) (2024-06-24)
+
+
+### Bug Fixes
+
+* **monitor-core:** replace crypto.randomUUID with uuid lib ([ee4ea5f](https://github.com/ZoomPhant/zoomphant-utils/commit/ee4ea5ff56f8c0d191eb6d0c25cec1d97a0537f3))
+
 ## [0.2.1](https://github.com/ZoomPhant/zoomphant-utils/compare/0.2.0...0.2.1) (2024-06-24)
 
 # [0.2.0](https://github.com/ZoomPhant/zoomphant-utils/compare/0.1.4...0.2.0) (2024-06-24)
