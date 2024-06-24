@@ -20,9 +20,5 @@
   "types": "files/index.d.ts",
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "@types/uuid": "^10.0.0",
-    "uuid": "^10.0.0"
   }
 }
