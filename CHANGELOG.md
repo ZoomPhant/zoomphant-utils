@@ -1,5 +1,12 @@
 
 
+## [0.2.4](https://github.com/ZoomPhant/zoomphant-utils/compare/0.2.3...0.2.4) (2024-06-24)
+
+
+### Bug Fixes
+
+* **monitor-react:** update the monitor version ([45f1cd2](https://github.com/ZoomPhant/zoomphant-utils/commit/45f1cd26ef207f47371e3010f3efb354c86bd3fd))
+
 ## [0.2.3](https://github.com/ZoomPhant/zoomphant-utils/compare/0.2.2...0.2.3) (2024-06-24)
 
 
