@@ -1,5 +1,12 @@
 
 
+## [0.2.3](https://github.com/ZoomPhant/zoomphant-utils/compare/0.2.2...0.2.3) (2024-06-24)
+
+
+### Bug Fixes
+
+* **monitor-core:** replace the uuid lib with random number ([ebab5ac](https://github.com/ZoomPhant/zoomphant-utils/commit/ebab5ac920ff0431222678022262b4f8d740302a))
+
 ## [0.2.2](https://github.com/ZoomPhant/zoomphant-utils/compare/0.2.1...0.2.2) (2024-06-24)
 
 
