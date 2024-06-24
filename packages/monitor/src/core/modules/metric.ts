@@ -9,15 +9,17 @@ export class Metrics {
   }
 
   public record() {
-    const { name: browser } = getBrowserInfo();
-    this.core.post({
-      type: "metrics",
-      body: JSON.stringify({
-        browser,
-        title: document.title,
-        os: detectOS(),
-        instance: this.core.baseSettings?.instanceId,
-      }),
-    });
+    setTimeout(() => {
+      const { name: browser } = getBrowserInfo();
+      this.core.post({
+        type: "metrics",
+        body: JSON.stringify({
+          browser,
+          title: document.title,
+          os: detectOS(),
+          instance: this.core.baseSettings?.instanceId,
+        }),
+      });
+    }, 2000);
   }
 }
