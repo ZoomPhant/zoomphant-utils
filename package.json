@@ -14,7 +14,11 @@
     "test": "echo \"test\"",
     "prepare": "husky",
     "release": "pnpm run build && release-it",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "demo:react": "pnpm --filter demo-react",
+    "demo": "pnpm --filter demo",
+    "core": "pnpm --filter @zoomphant-utils/monitor",
+    "core:react": "pnpm --filter @zoomphant-utils/monitor-react"
   },
   "keywords": [],
   "author": "",
