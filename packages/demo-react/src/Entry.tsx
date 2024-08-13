@@ -4,9 +4,10 @@ import Monitor, { MonitorProvider } from '@zoomphant-utils/monitor-react';
 
 const monitor = new Monitor({
   account: "ca1",
-  agent: "mc1326RGP9NPLF2",
-  token: "dukx8qdos45c",
-  instanceId: "miQT",
+  agent: "mc132E1NJHXZFYC",
+  token: "dunt0wtdr4e9",
+  instanceId: "miQZ",
+  resourceId: "mr132E1NJHUFRF7",
   domain: "https://demo.zervice.cn",
   plugins: {
     console: true
