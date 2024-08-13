@@ -1,5 +1,17 @@
 
 
+# [1.0.0](https://github.com/ZoomPhant/zoomphant-utils/compare/0.2.5...1.0.0) (2024-08-13)
+
+
+### Features
+
+* add resource params for monitor ([2363171](https://github.com/ZoomPhant/zoomphant-utils/commit/23631716243140540527c4907179b55683aee804))
+
+
+### BREAKING CHANGES
+
+* add a resourceId params for initialize function
+
 ## [0.2.5](https://github.com/ZoomPhant/zoomphant-utils/compare/0.2.4...0.2.5) (2024-06-24)
 
 
