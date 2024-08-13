@@ -4,7 +4,10 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function Crash() {
+  console.log(Object.create(null), 1, 2, 3, 4);
   throw new Error('App crashed!');
+
+  return null;
 }
 
 function App() {

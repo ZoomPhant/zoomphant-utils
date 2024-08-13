@@ -67,3 +67,13 @@ export const JSONStringify = (obj: Record<string, any>) => {
     return String(obj);
   }
 };
+
+export function safeJoin(arr: any[], splitWord = "") {
+  if (!Array.isArray(arr)) {
+    arr = [arr];
+  }
+
+  return arr
+    .map((o) => (typeof o === "object" ? JSONStringify(o) : o))
+    .join(splitWord);
+}
