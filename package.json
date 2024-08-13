@@ -13,7 +13,7 @@
     "build": "pnpm core run build && pnpm core:react add @zoomphant-utils/monitor --workspace && pnpm core:react build",
     "test": "echo \"test\"",
     "prepare": "husky",
-    "release": "pnpm run build && release-it",
+    "release": "pnpm run build && ./scripts/replace_version.sh && release-it",
     "commit": "git-cz",
     "demo:react": "pnpm --filter demo-react",
     "demo": "pnpm --filter demo",
