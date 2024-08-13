@@ -1,7 +1,7 @@
 {
   "name": "@zoomphant-utils/monitor",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "module": "files/index.js",
   "type": "module",
   "scripts": {

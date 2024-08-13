@@ -1,5 +1,7 @@
 
 
+## [1.0.1](https://github.com/ZoomPhant/zoomphant-utils/compare/1.0.0...1.0.1) (2024-08-13)
+
 # [1.0.0](https://github.com/ZoomPhant/zoomphant-utils/compare/0.2.5...1.0.0) (2024-08-13)
 
 
