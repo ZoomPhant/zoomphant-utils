@@ -7,6 +7,7 @@ export type IBaseSettings = {
   agent: string;
   token: string;
   instanceId: string;
+  resourceId: string;
   domain: string;
 };
 

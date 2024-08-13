@@ -71,7 +71,7 @@ export class Logs {
         return this.core
           .post({
             type: "logs",
-            body: stack.stringify(this.core.baseSettings!.instanceId),
+            body: stack.stringify(this.core.baseSettings!),
           })
           .finally(() => {
             if (stack) {

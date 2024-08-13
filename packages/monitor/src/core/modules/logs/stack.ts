@@ -1,3 +1,4 @@
+import type { IBaseSettings } from "../../../types";
 import { JSONStringify, pick } from "../../../utils";
 import type { Message } from "./message";
 
@@ -15,13 +16,14 @@ export class Stack {
     this.list = [...(this.list || []).slice(-1 * this.max + 1), message];
   }
 
-  toNormalize(instanceId: string) {
+  toNormalize(settings: IBaseSettings) {
     if (!this.list || this.list.length <= 0) return null;
     const last = this.list[this.list.length - 1];
     return {
       ...pick(last.extra || {}, ["browser", "url", "os", "title"]),
       level: last.level,
-      instance: instanceId,
+      instance: settings.instanceId,
+      resource: settings.resourceId,
       stack: (this.list || [])
         .reduce<any[]>((acc, message) => {
           const { message: line, timestamp, type } = message;
@@ -40,8 +42,8 @@ export class Stack {
     };
   }
 
-  stringify(instanceId: string) {
-    return JSON.stringify(this.toNormalize(instanceId));
+  stringify(settings: IBaseSettings) {
+    return JSON.stringify(this.toNormalize(settings));
   }
 
   destroy() {

@@ -39,6 +39,7 @@ class Core {
       token: settings.token,
       domain: settings.domain,
       instanceId: settings.instanceId,
+      resourceId: settings.resourceId,
     };
 
     this.logs = new Logs(this, settings.maxStacks || 10);

@@ -18,6 +18,7 @@ export class Metrics {
           title: document.title,
           os: detectOS(),
           instance: this.core.baseSettings?.instanceId,
+          resource: this.core.baseSettings?.resourceId,
         }),
       });
     }, 2000);
