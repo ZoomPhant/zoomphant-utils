@@ -1,5 +1,12 @@
 
 
+# [1.1.0](https://github.com/ZoomPhant/zoomphant-utils/compare/1.0.2...1.1.0) (2024-09-26)
+
+
+### Features
+
+* **logs:** add a new captureError function to get formatted data structure ([8d0cb43](https://github.com/ZoomPhant/zoomphant-utils/commit/8d0cb43252c4ec20cc684c0ad16fc8b3055fa1c4))
+
 ## [1.0.2](https://github.com/ZoomPhant/zoomphant-utils/compare/1.0.1...1.0.2) (2024-08-13)
 
 
