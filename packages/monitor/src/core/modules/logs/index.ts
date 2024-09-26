@@ -47,6 +47,15 @@ export class Logs {
     }
   }
 
+  public captureError(e: Error, extra: Record<string, any> = {}) {
+    const message = new Message("exception", "error", e.stack ?? "", {
+      ...extra,
+      errorType: e.constructor.name,
+    });
+
+    this.captureAndSync(message);
+  }
+
   public captureAndSync(
     message:
       | Message

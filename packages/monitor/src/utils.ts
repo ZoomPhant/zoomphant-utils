@@ -2,11 +2,43 @@ export const OriginalFetch = window.fetch;
 export const OriginalConsole = { ...console };
 export const OriginalXHR = window.XMLHttpRequest;
 
+export function getUnique() {
+  let key = window.localStorage.getItem("zoomphant-utils-unique");
+  if (!key) {
+    key = Array.from({ length: 4 })
+      .map(() => Math.ceil(Math.random() * 1e4))
+      .join("-");
+    window.localStorage.setItem("zoomphant-utils-unique", key);
+  }
+
+  return key;
+}
+
+export function hashCode(str: string) {
+  let hash = 0;
+  if (str.length == 0) return String(hash);
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash = hash & hash; // Convert to 32bit integer
+  }
+  return String(hash);
+}
+
 export function pick(obj: Record<string, any>, keys: string[]) {
   return keys.reduce((acc, key) => {
     acc[key] = obj[key];
     return acc;
   }, {} as Record<string, any>);
+}
+
+export function omit(obj: Record<string, any>, keys: string[]) {
+  return Object.keys(obj)
+    .filter((key) => !keys.includes(key))
+    .reduce((acc, key) => {
+      acc[key] = obj[key];
+      return acc;
+    }, {} as Record<string, any>);
 }
 
 export function detectOS() {

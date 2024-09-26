@@ -36,24 +36,25 @@ export default class MonitorXHRPlugin {
           const params = [
             "xhr",
             "info",
-            `${this.memo.method} ${this.memo.url} [${this.status}]`,
+            this.memo.url,
+            {
+              method: this.memo.method,
+              status: this.status,
+              ...(args.length > 0
+                ? {
+                    data: args[0],
+                  }
+                : {}),
+            },
           ];
-          if (args.length > 0) {
-            core.logs.capture([...params, { data: args[0] }] as [
+          core.logs.capture(
+            params as [
               IMessageParams["type"],
               IMessageParams["level"],
               IMessageParams["message"],
               IMessageParams["extra"]
-            ]);
-          } else {
-            core.logs.capture(
-              params as [
-                IMessageParams["type"],
-                IMessageParams["level"],
-                IMessageParams["message"]
-              ]
-            );
-          }
+            ]
+          );
         }
       });
       return proxiedSend.apply(this, [...args]);

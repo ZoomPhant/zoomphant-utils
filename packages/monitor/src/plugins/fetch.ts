@@ -21,24 +21,25 @@ export default class MonitorFetchPlugin {
         const params = [
           "fetch",
           "info",
-          `${method} ${url} [${response.status}]`,
+          url,
+          {
+            method,
+            status: response.status,
+            ...(body
+              ? {
+                  data: body,
+                }
+              : {}),
+          },
         ];
-        if (body) {
-          core.logs.capture([...params, { data: body }] as [
+        core.logs.capture(
+          params as [
             IMessageParams["type"],
             IMessageParams["level"],
             IMessageParams["message"],
             IMessageParams["extra"]
-          ]);
-        } else {
-          core.logs.capture(
-            params as [
-              IMessageParams["type"],
-              IMessageParams["level"],
-              IMessageParams["message"]
-            ]
-          );
-        }
+          ]
+        );
 
         return Promise.resolve(response);
       } catch (err) {

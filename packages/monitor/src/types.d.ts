@@ -30,12 +30,5 @@ export type IMessageParams = {
 
   timestamp: number;
 
-  extra: {
-    url?: string;
-    os?: string;
-    browser?: string;
-    browserVersion?: string;
-    title?: string;
-    data?: string;
-  };
+  extra: Record<string, string>;
 };

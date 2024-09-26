@@ -1,5 +1,5 @@
 import type { IBaseSettings } from "../../../types";
-import { JSONStringify, pick } from "../../../utils";
+import { getUnique, JSONStringify } from "../../../utils";
 import type { Message } from "./message";
 
 export class Stack {
@@ -20,25 +20,37 @@ export class Stack {
     if (!this.list || this.list.length <= 0) return null;
     const last = this.list[this.list.length - 1];
     return {
-      ...pick(last.extra || {}, ["browser", "url", "os", "title"]),
+      ...last.builtInExtra,
+      ...(last.extra?.hash ? { hash: last.extra.hash } : {}),
+      unique: getUnique(),
       level: last.level,
       instance: settings.instanceId,
       resource: settings.resourceId,
-      stack: (this.list || [])
-        .reduce<any[]>((acc, message) => {
-          const { message: line, timestamp, type } = message;
-          return [
-            ...acc,
-            (Array.isArray(line) ? line : [line]).map(
-              (o) =>
-                `[${type}] [${timestamp}] ${
-                  typeof o === "string" ? o.trim() : JSONStringify(o)
-                }`
-            ),
-          ];
-        }, [])
-        .reverse()
-        .join("\n"),
+      stack: JSONStringify(
+        (this.list || [])
+          .reduce<any[]>((acc, message) => {
+            const {
+              message: line,
+              timestamp,
+              type,
+              extra,
+              builtInExtra,
+            } = message;
+            return [
+              ...acc,
+              (Array.isArray(line) ? line : [line]).map((o) => ({
+                type,
+                timestamp,
+                message: typeof o === "string" ? o.trim() : JSONStringify(o),
+                extra: {
+                  ...extra,
+                  ...builtInExtra,
+                },
+              })),
+            ];
+          }, [])
+          .reverse()
+      ),
     };
   }
 

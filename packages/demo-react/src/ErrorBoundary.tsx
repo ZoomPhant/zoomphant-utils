@@ -26,11 +26,7 @@ class ErrorBoundary extends Component<Props, State> {
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     const monitor = getMonitor();
     if (monitor) {
-      getMonitor().logs.captureAndSync([
-        "exception",
-        "info",
-        [error.stack, '\nStack:', errorInfo.componentStack].join('\n')
-      ])
+      getMonitor().logs.captureError(error, errorInfo);
     }
   }
 

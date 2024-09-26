@@ -62,7 +62,7 @@ importers:
     devDependencies:
       '@types/bun':
         specifier: latest
-        version: 1.1.4
+        version: 1.1.10
 
   packages/demo:
     dependencies:
@@ -128,7 +128,7 @@ importers:
     devDependencies:
       '@types/bun':
         specifier: latest
-        version: 1.1.4
+        version: 1.1.10
       bun-plugin-dts:
         specifier: ^0.2.3
         version: 0.2.3
@@ -136,14 +136,14 @@ importers:
   packages/monitor-react:
     dependencies:
       '@zoomphant-utils/monitor':
-        specifier: 1.0.1
-        version: 1.0.1(typescript@5.4.5)
+        specifier: workspace:*
+        version: link:../monitor
       typescript:
         specifier: ^5.0.0
         version: 5.4.5
     devDependencies:
       '@types/bun':
-        specifier: latest
+        specifier: 1.1.4
         version: 1.1.4
       '@types/react':
         specifier: ^18.3.3
@@ -766,6 +766,9 @@ packages:
   '@types/babel__traverse@7.20.6':
     resolution: {integrity: sha512-r1bzfrm0tomOI8g1SzvCaQHo6Lcv6zu0EA+W2kHrt8dyrHQxGzBBL4kdkzIS+jBMV+EYcMAEAqXqYaLJq5rOZg==}
 
+  '@types/bun@1.1.10':
+    resolution: {integrity: sha512-76KYVSwrHwr9zsnk6oLXOGs9KvyBg3U066GLO4rk6JZk1ypEPGCUDZ5yOiESyIHWs9cx9iC8r01utYN32XdmgA==}
+
   '@types/bun@1.1.4':
     resolution: {integrity: sha512-ejSuv/3s0hTHj/nkkLzBlHxm4JxOPygbLNi0kzM6ooq8rOiQvIUCv7RRErTaWSfb+QVnKz6x7qlp8N86bGDiIg==}
 
@@ -868,11 +871,6 @@ packages:
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^4.2.0 || ^5.0.0
-
-  '@zoomphant-utils/monitor@1.0.1':
-    resolution: {integrity: sha512-iLxOqKl3zBnm3SQsed15m/zcEfe/smuahlC70Y6TD2OzdzPMWPUDJY8tRo5SuX2KoSGn9eZ2WJGTl/JiG0r1gA==}
-    peerDependencies:
-      typescript: ^5.0.0
 
   JSONStream@1.3.5:
     resolution: {integrity: sha512-E+iruNOY8VV9s4JEbe1aNEm6MiszPRr/UfcHMz0TQh1BXSxHK+ASV1R6W4HpjBhSeS+54PIsAMCBmwD06LLsqQ==}
@@ -1015,6 +1013,9 @@ packages:
 
   bun-types@1.1.13:
     resolution: {integrity: sha512-G/TqF0SsMQGLr4g7K3B2BK8BrPEA1EqCNwxZbyRdj5M4t54zvwyaqvRJOW34kuPqc2IvNNalRU3swc8B4oc4FA==}
+
+  bun-types@1.1.29:
+    resolution: {integrity: sha512-En3/TzSPMPyl5UlUB1MHzHpcrZDakTm7mS203eLoX1fBoEa3PW+aSS8GAqVJ7Is/m34Z5ogL+ECniLY0uDaCPw==}
 
   bundle-name@4.1.0:
     resolution: {integrity: sha512-tjwM5exMg6BGRI+kNmTntNsvdZS1X8BFYS6tnJ2hdH0kVxM6/eVZ2xy+FqStSWvYmtfFMDLIxurorHwDKfDz5Q==}
@@ -3853,6 +3854,10 @@ snapshots:
     dependencies:
       '@babel/types': 7.24.7
 
+  '@types/bun@1.1.10':
+    dependencies:
+      bun-types: 1.1.29
+
   '@types/bun@1.1.4':
     dependencies:
       bun-types: 1.1.13
@@ -4040,10 +4045,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@zoomphant-utils/monitor@1.0.1(typescript@5.4.5)':
-    dependencies:
-      typescript: 5.4.5
-
   JSONStream@1.3.5:
     dependencies:
       jsonparse: 1.3.1
@@ -4204,6 +4205,11 @@ snapshots:
       get-tsconfig: 4.7.5
 
   bun-types@1.1.13:
+    dependencies:
+      '@types/node': 20.12.14
+      '@types/ws': 8.5.10
+
+  bun-types@1.1.29:
     dependencies:
       '@types/node': 20.12.14
       '@types/ws': 8.5.10

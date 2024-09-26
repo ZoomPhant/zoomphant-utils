@@ -1,5 +1,5 @@
 import type Core from "..";
-import { detectOS, getBrowserInfo } from "../../utils";
+import { detectOS, getBrowserInfo, getUnique } from "../../utils";
 
 export class Metrics {
   private core: Core;
@@ -17,6 +17,7 @@ export class Metrics {
           browser,
           title: document.title,
           os: detectOS(),
+          unique: getUnique(),
           instance: this.core.baseSettings?.instanceId,
           resource: this.core.baseSettings?.resourceId,
         }),

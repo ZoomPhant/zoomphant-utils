@@ -1,5 +1,5 @@
 import type { IMessageParams } from "../../../types";
-import { detectOS, getBrowserInfo } from "../../../utils";
+import { detectOS, getBrowserInfo, hashCode } from "../../../utils";
 
 export class Message {
   public type: IMessageParams["type"] | null;
@@ -12,6 +12,14 @@ export class Message {
 
   public extra: IMessageParams["extra"] | null;
 
+  public builtInExtra: {
+    url?: string;
+    os?: string;
+    browser?: string;
+    browserVersion?: string;
+    title?: string;
+  } | null;
+
   constructor(
     type: IMessageParams["type"],
     level: IMessageParams["level"],
@@ -23,6 +31,8 @@ export class Message {
     this.type = type;
     this.timestamp = new Date().getTime();
     this.extra = (extra || {}) as IMessageParams["extra"];
+    this.extra.hash = this.extra.hash || hashCode(message);
+    this.builtInExtra = {};
 
     this.generateExtra();
   }
@@ -30,15 +40,15 @@ export class Message {
   generateExtra() {
     this.timestamp = new Date().getTime();
     const { name, version } = getBrowserInfo();
-    const extra = this.extra || {} as IMessageParams["extra"];
+    const builtInExtra = {} as IMessageParams["extra"];
 
-    extra.url = window.location.href;
-    extra.os = detectOS();
-    extra.browser = name;
-    extra.browserVersion = version;
-    extra.title = document.title;
+    builtInExtra.url = window.location.href;
+    builtInExtra.os = detectOS();
+    builtInExtra.browser = name;
+    builtInExtra.browserVersion = version;
+    builtInExtra.title = document.title;
 
-    this.extra = extra;
+    this.builtInExtra = builtInExtra;
   }
 
   destroy() {
@@ -46,5 +56,6 @@ export class Message {
     this.type = null;
     this.timestamp = null;
     this.extra = null;
+    this.builtInExtra = null;
   }
 }
