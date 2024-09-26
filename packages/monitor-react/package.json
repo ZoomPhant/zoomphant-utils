@@ -3,6 +3,7 @@
   "private": false,
   "version": "1.1.0",
   "module": "files/index.js",
+  "repository": "https://github.com/ZoomPhant/zoomphant-utils",
   "type": "module",
   "scripts": {
     "build": "NODE_ENV=production bun run ./scripts/build.js"
