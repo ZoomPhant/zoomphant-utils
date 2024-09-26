@@ -7,10 +7,7 @@ export default class MonitorFetchPlugin {
     if (!("fetch" in window)) return;
 
     async function FetchInterceptor(
-      ...args: [
-        url: string | Request | URL,
-        init?: FetchRequestInit | undefined
-      ]
+      ...args: [url: string | Request | URL, init?: RequestInit | undefined]
     ) {
       const [
         url,
