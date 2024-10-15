@@ -1,4 +1,4 @@
-import * as Monitor from "@zoomphant-utils/monitor";
+import { default as Monitor } from "@zoomphant-utils/monitor";
 
 const all_keys = [
   "account",
