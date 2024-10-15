@@ -1,5 +1,12 @@
 
 
+# [1.2.0](https://github.com/ZoomPhant/zoomphant-utils/compare/1.1.0...1.2.0) (2024-10-15)
+
+
+### Features
+
+* **sdk:** public a umd module to call sdk ([cbca8da](https://github.com/ZoomPhant/zoomphant-utils/commit/cbca8da993e8e5fa8e05fcda5909bbb001feb33a))
+
 # [1.1.0](https://github.com/ZoomPhant/zoomphant-utils/compare/1.0.2...1.1.0) (2024-09-26)
 
 

@@ -129,7 +129,7 @@ importers:
   packages/monitor-react:
     dependencies:
       '@zoomphant-utils/monitor':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../monitor
       typescript:
         specifier: ^5.0.0
@@ -163,8 +163,8 @@ importers:
         specifier: ^0.4.4
         version: 0.4.4(rollup@4.24.0)
       '@zoomphant-utils/monitor':
-        specifier: workspace:^
-        version: link:../monitor
+        specifier: 1.1.0
+        version: 1.1.0(typescript@5.4.5)
       rollup:
         specifier: ^4.24.0
         version: 4.24.0
@@ -1004,6 +1004,11 @@ packages:
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^4.2.0 || ^5.0.0
+
+  '@zoomphant-utils/monitor@1.1.0':
+    resolution: {integrity: sha512-iHuG7gu3tQSGqByAV/OxOPJU8wnYwz0Dvdq1qwnI5UQXIwAotmtiKAw0okeVR+pb7u4uVbH4TvwzJgKnoYjA3g==}
+    peerDependencies:
+      typescript: ^5.0.0
 
   JSONStream@1.3.5:
     resolution: {integrity: sha512-E+iruNOY8VV9s4JEbe1aNEm6MiszPRr/UfcHMz0TQh1BXSxHK+ASV1R6W4HpjBhSeS+54PIsAMCBmwD06LLsqQ==}
@@ -4294,6 +4299,10 @@ snapshots:
       vite: 5.2.13(@types/node@20.14.2)(terser@5.34.1)
     transitivePeerDependencies:
       - supports-color
+
+  '@zoomphant-utils/monitor@1.1.0(typescript@5.4.5)':
+    dependencies:
+      typescript: 5.4.5
 
   JSONStream@1.3.5:
     dependencies:
