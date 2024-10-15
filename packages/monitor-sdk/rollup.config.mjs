@@ -12,7 +12,7 @@ export default {
   plugins: [
     resolver(),
     json(),
-    // terser()
+    terser()
   ],
 
 };
