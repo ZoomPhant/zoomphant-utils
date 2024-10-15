@@ -1,5 +1,17 @@
 
 
+# [1.3.0](https://github.com/ZoomPhant/zoomphant-utils/compare/1.2.0...1.3.0) (2024-10-15)
+
+
+### Bug Fixes
+
+* **sdk:** define a new variable to accept setting ([fc5d535](https://github.com/ZoomPhant/zoomphant-utils/commit/fc5d535efeaa444203c8f652b6ab06b2bac44cba))
+
+
+### Features
+
+* **connect:** update the connect path ([8ee5809](https://github.com/ZoomPhant/zoomphant-utils/commit/8ee5809014578b7bfea9ebac480e8aa38a14effb))
+
 # [1.2.0](https://github.com/ZoomPhant/zoomphant-utils/compare/1.1.0...1.2.0) (2024-10-15)
 
 
