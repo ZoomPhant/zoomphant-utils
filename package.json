@@ -6,11 +6,12 @@
   "main": "index.js",
   "workspaces": [
     "packages/monitor",
-    "packages/monitor-react"
+    "packages/monitor-react",
+    "packages/monitor-sdk"
   ],
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "build": "pnpm core run build && pnpm core:react add @zoomphant-utils/monitor --workspace && pnpm core:react build",
+    "build": "pnpm core run build && pnpm core:react add @zoomphant-utils/monitor --workspace && pnpm core:react build && pnpm core:react add @zoomphant-utils/monitor --workspace && pnpm core:sdk build",
     "test": "echo \"test\"",
     "prepare": "husky",
     "release": "pnpm run build && ./scripts/replace_version.sh && release-it",
@@ -18,7 +19,8 @@
     "demo:react": "pnpm --filter demo-react",
     "demo": "pnpm --filter demo",
     "core": "pnpm --filter @zoomphant-utils/monitor",
-    "core:react": "pnpm --filter @zoomphant-utils/monitor-react"
+    "core:react": "pnpm --filter @zoomphant-utils/monitor-react",
+    "core:sdk": "pnpm --filter @zoomphant-utils/monitor-sdk"
   },
   "keywords": [],
   "author": "",

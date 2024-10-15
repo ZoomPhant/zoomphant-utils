@@ -1,0 +1,35 @@
+{
+  "name": "@zoomphant-utils/monitor-sdk",
+  "version": "1.1.0",
+  "private": false,
+  "description": "zoomphant monitor development kit",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production rollup --c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZoomPhant/zoomphant-utils.git"
+  },
+  "keywords": [
+    "monitor",
+    "zoomphant",
+    "trace"
+  ],
+  "author": "zoomphant",
+  "bugs": {
+    "url": "https://github.com/ZoomPhant/zoomphant-utils/issues"
+  },
+  "homepage": "https://github.com/ZoomPhant/zoomphant-utils#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@zoomphant-utils/monitor": "1.1.0",
+    "rollup": "^4.24.0"
+  }
+}
