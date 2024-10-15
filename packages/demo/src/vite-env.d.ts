@@ -4,5 +4,6 @@ import { Core } from "@zoomphant-utils/monitor";
 declare global {
   interface Window {
     instance: Core;
+    ZoomPhantMonitor: any;
   }
 }
