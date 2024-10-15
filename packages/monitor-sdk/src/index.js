@@ -10,14 +10,9 @@ const all_keys = [
 ];
 
 const ZoomPhantMonitor = {
-  settings: {
-    account: "",
-    agent: "",
-    token: "",
-    instanceId: "",
-    resourceId: "",
-    domain: "",
-  },
+  settings: window.ZoomPhantMonitorSettings
+    ? window.ZoomPhantMonitorSettings
+    : {},
   monitor: null,
 };
 
@@ -28,7 +23,14 @@ window.addEventListener("DOMContentLoaded", () => {
       true
     )
   ) {
-    ZoomPhantMonitor.monitor = new Monitor(window.ZoomPhantMonitorSDKSettings);
+    ZoomPhantMonitor.monitor = new Monitor({
+      ...ZoomPhantMonitor.settings,
+      plugins: {
+        console: true,
+        fetch: true,
+        xhr: true,
+      },
+    });
   }
 });
 
