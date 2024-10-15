@@ -1,5 +1,12 @@
 
 
+## [1.3.1](https://github.com/ZoomPhant/zoomphant-utils/compare/1.3.0...1.3.1) (2024-10-15)
+
+
+### Bug Fixes
+
+* **sdk:** correct the module importing for sdk module ([4bcd5b8](https://github.com/ZoomPhant/zoomphant-utils/commit/4bcd5b8a1f7abbb716d12681331c85fb9c9593dd))
+
 # [1.3.0](https://github.com/ZoomPhant/zoomphant-utils/compare/1.2.0...1.3.0) (2024-10-15)
 
 
