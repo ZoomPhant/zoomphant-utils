@@ -6,7 +6,7 @@
   "repository": "https://github.com/ZoomPhant/zoomphant-utils",
   "type": "module",
   "scripts": {
-    "build": "NODE_ENV=production bun run ./scripts/build.js"
+    "build": "pnpm core:react add @zoomphant-utils/monitor --workspace && NODE_ENV=production bun run ./scripts/build.js"
   },
   "devDependencies": {
     "@types/bun": "1.1.4",

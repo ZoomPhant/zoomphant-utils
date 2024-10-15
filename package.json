@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "build": "pnpm core run build && pnpm core:react add @zoomphant-utils/monitor --workspace && pnpm core:react build && pnpm core:sdk add @zoomphant-utils/monitor --workspace && pnpm core:sdk build",
+    "build": "pnpm core run build && pnpm core:react build && pnpm core:sdk build",
     "test": "echo \"test\"",
     "prepare": "husky",
     "release": "pnpm run build && ./scripts/replace_version.sh && release-it",
