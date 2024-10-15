@@ -73,7 +73,7 @@ class Core {
 
     this.connector.src = `${
       this.baseSettings!.domain
-    }/connector.html?${new URLSearchParams({
+    }/monitor/connector.html?${new URLSearchParams({
       ...(this.baseSettings || {}),
       domain: window.location.origin,
     })}`;
