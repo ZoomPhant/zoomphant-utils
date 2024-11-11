@@ -31,14 +31,14 @@
     "@eslint/js": "^9.4.0",
     "@release-it-plugins/workspaces": "^4.2.0",
     "@release-it/bumper": "^6.0.1",
-    "@release-it/conventional-changelog": "^8.0.1",
+    "@release-it/conventional-changelog": "^9.0.2",
     "commitizen": "^4.3.0",
     "eslint": "^9.4.0",
     "globals": "^15.4.0",
     "husky": "^9.0.11",
     "inquirer": "9",
     "lint-staged": "^15.2.5",
-    "release-it": "^17.3.0",
+    "release-it": "^17.10.0",
     "typescript-eslint": "^7.13.0"
   },
   "lint-staged": {
