@@ -1,5 +1,12 @@
 
 
+## [1.3.2](https://github.com/ZoomPhant/zoomphant-utils/compare/1.3.1...1.3.2) (2024-11-11)
+
+
+### Bug Fixes
+
+* update the peerDependencies to compatible more feature react version ([ef4c4da](https://github.com/ZoomPhant/zoomphant-utils/commit/ef4c4dae44169aae93efd505cc321105ad9f04ca))
+
 ## [1.3.1](https://github.com/ZoomPhant/zoomphant-utils/compare/1.3.0...1.3.1) (2024-10-15)
 
 
