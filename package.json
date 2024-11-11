@@ -56,5 +56,6 @@
     "commitizen": {
       "path": "@commitlint/cz-commitlint"
     }
-  }
+  },
+  "timeout": 50000
 }
