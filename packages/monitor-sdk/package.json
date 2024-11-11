@@ -6,7 +6,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "pnpm --filter @zoomphant-utils/monitor-sdk add @zoomphant-utils/monitor --workspace && NODE_ENV=production rollup --c ./rollup.config.mjs && exit 0"
+    "build": "pnpm --filter @zoomphant-utils/monitor-sdk add @zoomphant-utils/monitor --workspace && NODE_ENV=production rollup --c"
   },
   "repository": {
     "type": "git",
