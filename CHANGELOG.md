@@ -1,5 +1,12 @@
 
 
+# [1.4.0](https://github.com/ZoomPhant/zoomphant-utils/compare/1.3.2...1.4.0) (2025-01-20)
+
+
+### Features
+
+* **core,sdk,connector:** add a debug mode for monitor ([a2d3385](https://github.com/ZoomPhant/zoomphant-utils/commit/a2d3385c187e9ae12d6760ade1590175c5528316))
+
 ## [1.3.2](https://github.com/ZoomPhant/zoomphant-utils/compare/1.3.1...1.3.2) (2024-11-11)
 
 
