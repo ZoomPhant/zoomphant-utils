@@ -9,6 +9,7 @@ const monitor = new Monitor({
   instanceId: "miR2",
   resourceId: "mr13DVAWTAMRD0J",
   domain: "https://demo.zervice.cn",
+  debug: true,
   plugins: {
     console: true,
     fetch: true,

@@ -5,6 +5,8 @@ import MonitorXHRPlugin from "../plugins/xhr";
 import type { IBaseSettings, IPluginSettings, ISettings } from "../types";
 import { Logs } from "./modules/logs";
 import { Metrics } from "./modules/metric";
+
+const log: Console["log"] = window.console.log;
 class Core {
   public static readonly version: string = version;
 
@@ -40,7 +42,10 @@ class Core {
       domain: settings.domain,
       instanceId: settings.instanceId,
       resourceId: settings.resourceId,
+      debug: !!settings.debug,
     };
+
+    this.console("[Monitor Core]: baseSettings", this.baseSettings);
 
     this.logs = new Logs(this, settings.maxStacks || 10);
     this.metrics = new Metrics(this);
@@ -54,7 +59,14 @@ class Core {
     this.initialize();
   }
 
+  public console(...args: any[]): any {
+    if (this.baseSettings?.debug) {
+      log(...args);
+    }
+  }
+
   private initialize() {
+    this.console("[Monitor Core]: initialize");
     this.createConnector();
     this.addEventListeners();
 
@@ -66,6 +78,7 @@ class Core {
   }
 
   private createConnector() {
+    this.console("[Monitor Core]: create connector");
     this.connector = (document.getElementById(this.connectorId) ??
       document.createElement("iframe")) as HTMLIFrameElement;
 
@@ -76,6 +89,7 @@ class Core {
     }/monitor/connector.html?${new URLSearchParams({
       ...(this.baseSettings || {}),
       domain: window.location.origin,
+      debug: this.baseSettings?.debug ? "1" : "0",
     })}`;
 
     this.connector.style.position = "absolute";
@@ -92,6 +106,7 @@ class Core {
   }
 
   private addEventListeners() {
+    this.console("[Monitor Core]: add message listeners");
     window.addEventListener("message", this.handleMessage.bind(this));
   }
 
@@ -99,10 +114,12 @@ class Core {
     const { source, body, type, messageId } = evt.data;
     if (source === this.connectorId) {
       if (type === "initialize") {
+        this.console("[Monitor Core]: got initialize message");
         if (this.connectorPromiseResolver) {
           this.connectorPromiseResolver(undefined);
         }
       } else {
+        this.console(`[Monitor Core]: got message from [${messageId}]`, body);
         const resolver = this.messageResolvers[messageId];
         if (resolver) {
           resolver(body);
@@ -120,13 +137,17 @@ class Core {
     body: string;
   }): Promise<T> {
     if (!this.connector) {
+      this.console(`[Monitor Core][Error]: Connector not found`);
       throw new Error("Connector not found");
     }
-    const messageId = `${new Date().getTime()}-${(Math.random() * 1e5).toFixed(0)}`;
+    const messageId = `${new Date().getTime()}-${(Math.random() * 1e5).toFixed(
+      0
+    )}`;
     const promise = new Promise<T>((resolve) => {
       this.messageResolvers[messageId] = resolve;
     });
 
+    this.console(`[Monitor Core]: Post [${type}] message to connector`, body);
     return Promise.resolve(
       this.connectorPromise?.then(() => {
         this.connector?.contentWindow?.postMessage?.(

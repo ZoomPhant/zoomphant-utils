@@ -1,5 +1,5 @@
 import ZoomPhantMonitor from './core';
 
-window.ZoomPhantMonitor.debug = false;
+window.ZoomPhantMonitor.debug = true;
 
 export default ZoomPhantMonitor;

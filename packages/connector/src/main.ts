@@ -1,6 +1,9 @@
 const qs = new URLSearchParams(window.location.search);
 
+const log = (...args: any[]) => qs.get("debug") === "1" && console.log(...args);
+
 const receiveMessage = (evt: MessageEvent) => {
+  log("[Monitor Connector]: Get Post Message");
   const data: {
     source: string;
     type: "logs" | "metrics";
@@ -13,6 +16,7 @@ const receiveMessage = (evt: MessageEvent) => {
   if (!top) return;
 
   if (evt.data.source === "zoomphant-monitor") {
+    log("[Monitor Connector]: Get Post Message", data);
     const api =
       data.type === "logs" ? "/api/data/web/logs" : "/api/data/web/metrics";
 
@@ -28,6 +32,7 @@ const receiveMessage = (evt: MessageEvent) => {
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("X-account-id", qs.get("account") as string);
     xhr.onload = () => {
+      log("[Monitor Connector][Success]: ", data);
       top.postMessage(
         {
           messageId: data.messageId,
@@ -40,6 +45,7 @@ const receiveMessage = (evt: MessageEvent) => {
       xhr = null;
     };
     xhr.onerror = () => {
+      log("[Monitor Connector][Error]: ", xhr);
       top.postMessage(
         {
           messageId: data.messageId,
@@ -59,6 +65,7 @@ const initialize = () => {
   const top = window.top;
   if (top) {
     window.addEventListener("message", receiveMessage);
+    log("[Monitor Connector]: Send Connector Initialize Event");
     top.postMessage(
       {
         source: "zoomphant-connector",

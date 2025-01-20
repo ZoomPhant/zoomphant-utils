@@ -9,6 +9,7 @@ export type IBaseSettings = {
   instanceId: string;
   resourceId: string;
   domain: string;
+  debug?: boolean;
 };
 
 export type IPluginSettings = {
