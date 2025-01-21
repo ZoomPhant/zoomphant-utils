@@ -1,5 +1,17 @@
 
 
+# [1.5.0](https://github.com/ZoomPhant/zoomphant-utils/compare/1.4.0...1.5.0) (2025-01-21)
+
+
+### Bug Fixes
+
+* **sdk:** ensure that initialization is always performed ([82480e4](https://github.com/ZoomPhant/zoomphant-utils/commit/82480e465dcb662b9d7836d9974bbe4b45d28558))
+
+
+### Features
+
+* **history plugin:** add a history hook to watch url change ([ef1622d](https://github.com/ZoomPhant/zoomphant-utils/commit/ef1622d6d185963b8aafb240575042faf42a6c14))
+
 # [1.4.0](https://github.com/ZoomPhant/zoomphant-utils/compare/1.3.2...1.4.0) (2025-01-20)
 
 
