@@ -20,7 +20,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@zoomphant-utils/monitor": "1.4.0"
+    "@zoomphant-utils/monitor": "workspace:*"
   },
   "files": [
     "files/*"

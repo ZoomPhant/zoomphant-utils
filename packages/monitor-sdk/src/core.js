@@ -16,11 +16,9 @@ const ZoomPhantMonitor = {
   monitor: null,
   debug: false,
 };
-console.log("[monitor-sdk]: Add initialize function on DOMContentLoaded event");
-window.addEventListener("DOMContentLoaded", () => {
-  console.log(
-    "[monitor-sdk]: DOMContentLoaded is triggered, start to initialize"
-  );
+
+function initialize() {
+  console.log("[Monitor SDK]: Initialize");
   const missing = all_keys.reduce((acc, key) => {
     if (!ZoomPhantMonitor.settings[key]) return [...acc, key];
     return acc;
@@ -36,14 +34,28 @@ window.addEventListener("DOMContentLoaded", () => {
       },
     });
 
-    console.log(`[monitor-sdk]: Initialize successfully`);
+    console.log(`[Monitor SDK]: Initialize successfully`);
   } else {
     console.log(
-      `[monitor-sdk]: Missing some variables [${missing.join(
+      `[Monitor SDK][Error]: Missing some variables [${missing.join(
         ","
       )}], please check ZoomPhantMonitorSettings`
     );
   }
-});
+}
+
+if (
+  document.readyState === "complete" ||
+  document.readyState === "interactive"
+) {
+  console.log("[Monitor SDK]: Document is ready, initialize directly");
+  setTimeout(() => initialize());
+} else {
+  console.log("[Monitor SDK]: Add initialize function on DOMContentLoaded event");
+  window.addEventListener("DOMContentLoaded", () => {
+    console.log("[Monitor SDK]: DOMContentLoaded has been triggered");
+    initialize();
+  });
+}
 
 export default ZoomPhantMonitor;
