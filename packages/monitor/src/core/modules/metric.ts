@@ -9,8 +9,8 @@ export class Metrics {
   }
 
   public record(params?: {
-    title: string;
-    url: string;
+    title: string | null | undefined;
+    url: string | null | undefined;
     type: "replaceState" | "pushState" | "load";
   }) {
     setTimeout(() => {
