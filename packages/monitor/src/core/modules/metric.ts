@@ -8,14 +8,20 @@ export class Metrics {
     this.core = core;
   }
 
-  public record() {
+  public record(params?: {
+    title: string;
+    url: string;
+    type: "replaceState" | "pushState" | "load";
+  }) {
     setTimeout(() => {
       const { name: browser } = getBrowserInfo();
       this.core.post({
         type: "metrics",
         body: JSON.stringify({
           browser,
-          title: document.title,
+          title: params?.title ?? document.title,
+          type: params?.type ?? "load",
+          path: params?.url ?? window.location.href,
           os: detectOS(),
           unique: getUnique(),
           instance: this.core.baseSettings?.instanceId,

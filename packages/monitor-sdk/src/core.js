@@ -26,12 +26,13 @@ function initialize() {
   if (missing.length === 0) {
     ZoomPhantMonitor.monitor = new Monitor({
       ...ZoomPhantMonitor.settings,
-      debug: !!ZoomPhantMonitor.debug,
       plugins: {
-        console: true,
-        fetch: true,
-        xhr: true,
+        console: ZoomPhantMonitor.settings?.plugins?.console ?? true,
+        fetch: ZoomPhantMonitor.settings?.plugins?.fetch ?? true,
+        xhr: ZoomPhantMonitor.settings?.plugins?.xhr ?? true,
+        history: ZoomPhantMonitor.settings?.plugins?.history ?? true
       },
+      debug: !!ZoomPhantMonitor.debug,
     });
 
     console.log(`[Monitor SDK]: Initialize successfully`);

@@ -1,6 +1,7 @@
 import { version } from "../../package.json";
 import MonitorConsolePlugin from "../plugins/console";
 import MonitorFetchPlugin from "../plugins/fetch";
+import MonitorHistoryPlugin from "../plugins/history";
 import MonitorXHRPlugin from "../plugins/xhr";
 import type { IBaseSettings, IPluginSettings, ISettings } from "../types";
 import { Logs } from "./modules/logs";
@@ -18,6 +19,7 @@ class Core {
     xhr: false,
     fetch: false,
     console: false,
+    history: false,
   };
 
   private connector: HTMLIFrameElement | null = null;
@@ -54,6 +56,7 @@ class Core {
       if (settings.plugins.xhr) this.pluginSettings.xhr = true;
       if (settings.plugins.fetch) this.pluginSettings.fetch = true;
       if (settings.plugins.console) this.pluginSettings.console = true;
+      if (settings.plugins.history) this.pluginSettings.history = true;
     }
 
     this.initialize();
@@ -73,6 +76,7 @@ class Core {
     if (this.pluginSettings.fetch) MonitorFetchPlugin.initialize(this);
     if (this.pluginSettings.xhr) MonitorXHRPlugin.initialize(this);
     if (this.pluginSettings.console) MonitorConsolePlugin.initialize(this);
+    if (this.pluginSettings.history) MonitorHistoryPlugin.initialize(this);
 
     this.metrics.record();
   }

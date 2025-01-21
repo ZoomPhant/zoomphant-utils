@@ -16,6 +16,7 @@ export type IPluginSettings = {
   xhr?: boolean;
   fetch?: boolean;
   console?: boolean;
+  history?: boolean;
 };
 
 export type IStackSettings = {
