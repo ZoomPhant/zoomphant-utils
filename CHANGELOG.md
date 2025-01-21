@@ -1,5 +1,13 @@
 
 
+## [1.5.1](https://github.com/ZoomPhant/zoomphant-utils/compare/1.5.0...1.5.1) (2025-01-21)
+
+
+### Bug Fixes
+
+* **history:** get correct args from pushState and replaceState ([c49dbcd](https://github.com/ZoomPhant/zoomphant-utils/commit/c49dbcd4965d04d8633beaf2cb1b2908ffc6c715))
+* **history:** insteading of document.title if unuset is empty ([eae3ecd](https://github.com/ZoomPhant/zoomphant-utils/commit/eae3ecdc9f20a8ecd28dc8072a841d11630eb1bf))
+
 # [1.5.0](https://github.com/ZoomPhant/zoomphant-utils/compare/1.4.0...1.5.0) (2025-01-21)
 
 
