@@ -19,7 +19,7 @@ export class Metrics {
         type: "metrics",
         body: JSON.stringify({
           browser,
-          title: params?.title ?? document.title,
+          title: params?.title && params.title !== '' ? params.title : document.title,
           type: params?.type ?? "load",
           path: params?.url ?? window.location.href,
           os: detectOS(),
